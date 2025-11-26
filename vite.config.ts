@@ -5,9 +5,14 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      // base must match the repository name when deploying to GitHub Pages
+      base: '/Professor-Online-Academy/',
       server: {
         port: 3000,
         host: '0.0.0.0',
+      },
+      build: {
+        outDir: 'dist'
       },
       plugins: [react()],
       define: {
